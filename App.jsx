@@ -1,9 +1,7 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import { useSyncExternalStore } from "use-sync-external-store";
-import WebsimSocket from "./WebsimSocket";
-import MinigameGenerator from "./MinigameGenerator";
+const { useState, useEffect } = window.React;
+const { createRoot } = window.ReactDOM;
+const { useSyncExternalStore } = window.useSyncExternalStore;
 function App() {
   const [room] = useState(() => new WebsimSocket());
   const [generator] = useState(() => new MinigameGenerator(room));
@@ -58,7 +56,7 @@ function App() {
   return /* @__PURE__ */ jsxDEV("div", { className: "container", children: [
     /* @__PURE__ */ jsxDEV("h1", { children: "LLM Minigame Generator" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 73,
+      lineNumber: 71,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV("div", { className: "players-list", children: Object.entries(peers).map(([id, peer]) => /* @__PURE__ */ jsxDEV("div", { children: /* @__PURE__ */ jsxDEV(
@@ -73,17 +71,17 @@ function App() {
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 78,
+        lineNumber: 76,
         columnNumber: 13
       },
       this
     ) }, id, false, {
       fileName: "<stdin>",
-      lineNumber: 77,
+      lineNumber: 75,
       columnNumber: 11
     }, this)) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 75,
+      lineNumber: 73,
       columnNumber: 7
     }, this),
     isHost && /* @__PURE__ */ jsxDEV(
@@ -97,7 +95,7 @@ function App() {
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 89,
+        lineNumber: 87,
         columnNumber: 9
       },
       this
@@ -105,45 +103,45 @@ function App() {
     currentGame && /* @__PURE__ */ jsxDEV("div", { className: "game-area", children: [
       /* @__PURE__ */ jsxDEV("h2", { children: currentGame.title }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 99,
+        lineNumber: 97,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("p", { children: currentGame.description }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 100,
+        lineNumber: 98,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("h3", { children: "Rules:" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 101,
+        lineNumber: 99,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("ul", { children: currentGame.rules.map((rule, i) => /* @__PURE__ */ jsxDEV("li", { children: rule }, i, false, {
         fileName: "<stdin>",
-        lineNumber: 104,
+        lineNumber: 102,
         columnNumber: 15
       }, this)) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 102,
+        lineNumber: 100,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("p", { children: [
         /* @__PURE__ */ jsxDEV("strong", { children: "Win Condition:" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 107,
+          lineNumber: 105,
           columnNumber: 14
         }, this),
         " ",
         currentGame.winCondition
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 107,
+        lineNumber: 105,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("p", { children: [
         /* @__PURE__ */ jsxDEV("strong", { children: "Duration:" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 108,
+          lineNumber: 106,
           columnNumber: 14
         }, this),
         " ",
@@ -151,42 +149,42 @@ function App() {
         " seconds"
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 108,
+        lineNumber: 106,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV("p", { children: [
         /* @__PURE__ */ jsxDEV("strong", { children: "Scoring:" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 109,
+          lineNumber: 107,
           columnNumber: 14
         }, this),
         " ",
         currentGame.scoring.details
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 109,
+        lineNumber: 107,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 98,
+      lineNumber: 96,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ jsxDEV("div", { className: "game-history", children: [
       /* @__PURE__ */ jsxDEV("h2", { children: "Previous Games" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 114,
+        lineNumber: 112,
         columnNumber: 9
       }, this),
       games.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)).map((game) => /* @__PURE__ */ jsxDEV("div", { className: "game-card", onClick: () => startSavedGame(game), children: [
         /* @__PURE__ */ jsxDEV("h3", { children: game.title }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 117,
+          lineNumber: 115,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ jsxDEV("p", { children: game.description }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 118,
+          lineNumber: 116,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ jsxDEV("small", { children: [
@@ -194,28 +192,28 @@ function App() {
           game.players.join(", ")
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 119,
+          lineNumber: 117,
           columnNumber: 13
         }, this)
       ] }, game.id, true, {
         fileName: "<stdin>",
-        lineNumber: 116,
+        lineNumber: 114,
         columnNumber: 11
       }, this))
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 113,
+      lineNumber: 111,
       columnNumber: 7
     }, this)
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 72,
+    lineNumber: 70,
     columnNumber: 5
   }, this);
 }
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 root.render(/* @__PURE__ */ jsxDEV(App, {}, void 0, false, {
   fileName: "<stdin>",
-  lineNumber: 129,
+  lineNumber: 127,
   columnNumber: 13
 }));
